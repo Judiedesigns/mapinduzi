@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Mapinduzi Firm</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14 1C14 1 3 11.5 3 21C3 27.6 7.9 33 14 33C20.1 33 25 27.6 25 21C25 11.5 14 1 14 1Z" fill="#C4522A"/>
+      <path d="M14 13C14 13 9 17.5 9 21.5C9 24.5 11.2 27 14 27C16.8 27 19 24.5 19 21.5C19 17.5 14 13 14 13Z" fill="#FAE8C8"/>
+      <path d="M14 19C14 19 11.5 21 11.5 23C11.5 24.4 12.6 25.5 14 25.5C15.4 25.5 16.5 24.4 16.5 23C16.5 21 14 19 14 19Z" fill="#C4522A"/>
+    </svg>
+    <span class="nav-logo-text">Mapinduzi</span>
+  </a>
+
+  <a href="contact.html" class="nav-cta">Partner With Us</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="nav-drawer" id="navDrawer">
+  <button class="nav-drawer-close" id="drawerClose" aria-label="Close menu">×</button>
+  <ul>
+    <li><a href="index.html" onclick="closeDrawer()">Home</a></li>
+    <li><a href="about.html" onclick="closeDrawer()">About</a></li>
+    <li><a href="work.html" onclick="closeDrawer()">Work</a></li>
+    <li><a href="resources.html" onclick="closeDrawer()">Resources</a></li>
+    <li><a href="contact.html" onclick="closeDrawer()">Contact Us</a></li>
+  </ul>
+  <a href="contact.html" class="btn-pill" onclick="closeDrawer()">Partner With Us</a>
+</div>
+
+<!-- HERO -->
+<section class="hero about-hero">
+  <div class="about-hero-bg"></div>
+  <div class="hero-content">
+    <h1 class="hero-headline">About us.</h1>
+    <p class="hero-sub">We're a small, deliberately built firm with a single purpose: to shift the development sector from donor-driven dependency toward African-led sustainability. Here's the story of why we exist and how we work.</p>
+    <a href="#" class="btn-pill">Find out our work <span>→</span></a>
+  </div>
+</section>
+
+<!-- MANIFESTO STRIP -->
+<div class="manifesto-strip">
+  <p>"To drive systemic transformation and realize a future of equitable, locally-led, and sustainable development across the continent."</p>
+  <span>The Mapinduzi Mission</span>
+</div>
+
+<!-- STATEMENT -->
+<section class="statement">
+  <div class="statement-title reveal">
+    <h2>The aid system was built for donors, <em>not communities.</em></h2>
+    <p class="statement-body">For decades, the development sector has been designed around donor priorities — not community needs. Programs are built to satisfy reporting requirements, not to transfer power. When the funding cycle ends, so does the progress. That's the system we're here to change.</p>
+  </div>
+  <div class="statement-img-wrap">
+    <img class="statement-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1400&q=85" alt="Mapinduzi in the field">
+    <div class="statement-card reveal">
+      <p>To drive systemic transformation and realize a future of equitable, locally-led, sustainable development across the continent.</p>
+      <hr>
+      <span>Every system we build is created to function without us.</span>
+    </div>
+  </div>
+</section>
+<div class="statement-spacer"></div>
+
+<!-- SHIFT — Mission & Vision -->
+<section class="shift">
+  <div class="shift-text">
+    <div class="shift-text-inner reveal">
+      <span class="shift-eyebrow">Our conviction</span>
+      <h2>Shifting power back to <em>where it belongs.</em></h2>
+      <p><strong>Our Mission:</strong> to drive lasting transformation, realizing a future where development across Africa is equitable, locally-led, and no longer dependent on outside intervention to survive.</p>
+      <p><strong>Our Vision:</strong> an Africa where external support plays a supporting role — not the leading one. Where local institutions are trusted, capable, and fully in charge of their own progress.</p>
+    </div>
+  </div>
+  <div class="shift-img">
+    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=85" alt="Communities in Africa">
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="how">
+  <div class="how-header reveal">
+    <span class="how-label">HOW WE WORK</span>
+    <h2>Not just consultants. We are <em>Catalysts for change.</em></h2>
+  </div>
+  <div class="how-row reveal">
+    <div class="how-row-left">
+      <span class="how-row-num">01</span>
+      <span class="how-row-title">Standards</span>
+    </div>
+    <div class="how-row-right">
+      <p class="how-row-desc">Every program we design starts with listening. We map each community from the bottom up — the culture, the politics, the problem, the people. No assumptions, no imported models, no shortcuts.</p>
+      <div class="how-row-img">
+        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80" alt="Standards">
+      </div>
+    </div>
+  </div>
+  <div class="how-row reveal">
+    <div class="how-row-left">
+      <span class="how-row-num">02</span>
+      <span class="how-row-title">Delivery</span>
+    </div>
+    <div class="how-row-right">
+      <p class="how-row-desc">Communities lead. We support. We use co-creation methodologies and planning systems where the people closest to the problem define the solutions — and stay in the driver's seat throughout.</p>
+      <div class="how-row-img">
+        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&q=80" alt="Delivery">
+      </div>
+    </div>
+  </div>
+  <div class="how-row reveal">
+    <div class="how-row-left">
+      <span class="how-row-num">03</span>
+      <span class="how-row-title">Legacy</span>
+    </div>
+    <div class="how-row-right">
+      <p class="how-row-desc">We plan for the end from the beginning. Every piece of work includes a handover design so that local institutions are stronger, more self-sufficient, and ready to shape what comes next.</p>
+      <div class="how-row-img">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80" alt="Legacy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team">
+  <div class="team-header reveal">
+    <h2>The people behind the revolution.</h2>
+    <p>Both of our Founding Partners are African development sector veterans. Together, they have worked in the field and are rooted in finance literacy.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-card-img">
+        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=800&q=85" alt="Akinyi Oongo">
+      </div>
+      <div class="team-card-body">
+        <span class="team-card-name">Akinyi Oongo</span>
+        <span class="team-card-role">Founding Partner</span>
+        <p class="team-card-bio">Akinyi Oongo is a Founding Partner at Mapinduzi, a Pan-African advisory practice with over a decade dedicated to advancing power in philanthropy across Africa. Her work focuses on supporting donors and philanthropy-minded organizations in building stronger, more equitable systems for resource allocation and impactful giving.</p>
+        <p class="team-card-bio">She brings extensive experience at the intersection of global health, gender equality, and international funding. Akinyi has managed multimillion-dollar grants across global self-reliance funds and strategic initiatives — coaching organizations to strengthen governance, mobilize resources, and build institutional capacity. She works directly with governments, multilateral agencies, and organizations of all typologies, with a singular focus: ensuring programs are set up not just to deliver, but to last.</p>
+        <p class="team-card-bio">Rooted in feminist principles of equity, justice, and collective agency, Akinyi advances funding approaches that are flexible, trust-based, and grounded in local expertise. She works as a thought partner to leaders advancing women's rights, SRHR, and social equity — ensuring they are meaningfully resourced and centered in decision-making.</p>
+        <a href="#" class="team-read-more">Read more</a>
+      </div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-card-img">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=85" alt="Judicaelle Irakoze">
+      </div>
+      <div class="team-card-body">
+        <span class="team-card-name">Judicaelle Irakoze</span>
+        <span class="team-card-role">Managing Partner</span>
+        <p class="team-card-bio">Judicaelle Irakoze is an award-winning feminist thought leader and seasoned executive with over 10 years of experience driving strategic fundraising and high-impact programs for gender and racial equity across the Global South. She leads Mapinduzi to ensure the continent's development is architected, led, and sustained by Africans.</p>
+        <a href="#" class="team-read-more">Read more</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="values-header reveal">
+    <span class="values-label">Our Values &amp; Impact</span>
+    <h2>What we stand for.<br><em>How we work.</em></h2>
+  </div>
+  <div class="values-grid">
+    <div class="value-card reveal">
+      <svg class="value-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 3L5 8v10c0 7.7 5.6 14.9 13 16.9C25.4 32.9 31 25.7 31 18V8L18 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M12.5 18l4 4L23.5 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h4>African Excellence</h4>
+      <p>Every program we design starts from an African frame — not as the starting point for development practice, but as the standard it aspires to. African excellence is our measure, our method, and our benchmark.</p>
+    </div>
+    <div class="value-card reveal">
+      <svg class="value-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 4a9 9 0 0 1 6.4 15.3c-.9.9-1.4 2-1.4 3.2V24H13v-1.5c0-1.2-.5-2.3-1.4-3.2A9 9 0 0 1 18 4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M14 27h8M15.5 30.5h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <h4>Evidence-Driven Insights</h4>
+      <p>We build programs that start with knowing, not guessing. Rigorous, participatory research isn't a box to tick — it's the foundation everything else is built on. Local expertise informs everything we do.</p>
+    </div>
+    <div class="value-card reveal">
+      <svg class="value-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="11" r="4" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="24" cy="11" r="4" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M4 30c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M22 24.5c1.2-.9 2.8-1.5 4.5-1.5 3.9 0 7 3.1 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <h4>Feminist Practice</h4>
+      <p>Equity isn't optional. We centre the voices, rights, and lived realities of the most marginalized — especially women and girls. We don't just talk about systemic change; we design it in from the start.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-band-bg"></div>
+  <div class="cta-band-radial"></div>
+  <div class="cta-content reveal">
+    <h2>Ready to build something that lasts <em>beyond the project?</em></h2>
+    <a href="#" class="btn-pill">Partner with us</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-brand-name">Mapinduzi</span>
+      <span class="footer-brand-tag">Mapinduzi — Driving the African Revolution in Development.</span>
+      <p>A revolutionary approach to development across Africa — where communities lead, evidence guides, and local expertise sets the global standard.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="work.html">Work Done</a></li>
+        <li><a href="resources.html">Resources Hub</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="about.html#why">Why Mapinduzi Exists</a></li>
+        <li><a href="about.html#how">How We Work</a></li>
+        <li><a href="about.html#values">Our Values & Impact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="contact.html">Inquiry Form</a></li>
+        <li><a href="contact.html">Contact Info</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Twitter / X</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Mapinduzi. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter</a>
+      <a href="#">Newsletter</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  const drawer = document.getElementById('navDrawer');
+  document.getElementById('hamburger').addEventListener('click', () => {
+    drawer.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = `${(i % 3) * 0.1}s`;
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Mapinduzi Firm</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ── CONTACT PAGE STYLES ── */
+
+.contact-hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1800&q=85');
+  background-size: cover;
+  background-position: center 30%;
+  filter: brightness(0.38);
+}
+
+/* LIGHT SECTION WRAPPER */
+.contact-section {
+  background: var(--white);
+}
+
+/* FORM SECTION INNER GRID */
+.contact-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 52px;
+  align-items: start;
+}
+
+.contact-form-col {
+  padding-right: 80px;
+  border-right: 1px solid rgba(30,18,10,0.1);
+}
+
+.contact-info-col {
+  padding-left: 80px;
+}
+
+/* eyebrows — on light bg use brand red */
+.contact-form-col .contact-eyebrow,
+.contact-info-col .contact-eyebrow {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+
+/* headings — ink on light bg */
+.contact-form-col h2,
+.contact-info-col h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.1;
+  margin: 0 0 40px;
+}
+
+/* FORM FIELDS */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(30,18,10,0.55);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: rgba(30,18,10,0.03);
+  border: 1px solid rgba(30,18,10,0.18);
+  border-radius: 6px;
+  padding: 14px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: rgba(30,18,10,0.35);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--red);
+  background: rgba(196,82,42,0.04);
+}
+
+.form-field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231E120A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  cursor: pointer;
+  color: rgba(30,18,10,0.45);
+}
+
+.form-field select option {
+  background: var(--white);
+  color: var(--ink);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.7;
+}
+
+.form-submit {
+  margin-top: 8px;
+  align-self: flex-start;
+}
+
+.form-success {
+  display: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--red);
+  letter-spacing: 0.04em;
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid rgba(196,82,42,0.25);
+  border-radius: 6px;
+  background: rgba(196,82,42,0.06);
+}
+
+/* CONTACT INFO COLUMN */
+.contact-info-col h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom: 48px;
+}
+
+.contact-info-items {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.contact-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(30,18,10,0.1);
+}
+
+.contact-info-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.contact-info-item .info-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.contact-info-item .info-value {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.contact-info-item .info-value a {
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-info-item .info-value a:hover {
+  color: var(--red);
+}
+
+.contact-social-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.contact-social-links a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 9px 18px;
+  border: 1px solid rgba(30,18,10,0.22);
+  border-radius: 100px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.contact-social-links a:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contact-body {
+    grid-template-columns: 1fr;
+    padding: 72px 32px;
+    gap: 0;
+  }
+  .contact-form-col {
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(30,18,10,0.1);
+    padding-bottom: 64px;
+    margin-bottom: 64px;
+  }
+  .contact-info-col {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-body { padding: 56px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html" class="active">Contact Us</a></li>
+  </ul>
+
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14 1C14 1 3 11.5 3 21C3 27.6 7.9 33 14 33C20.1 33 25 27.6 25 21C25 11.5 14 1 14 1Z" fill="#C4522A"/>
+      <path d="M14 13C14 13 9 17.5 9 21.5C9 24.5 11.2 27 14 27C16.8 27 19 24.5 19 21.5C19 17.5 14 13 14 13Z" fill="#FAE8C8"/>
+      <path d="M14 19C14 19 11.5 21 11.5 23C11.5 24.4 12.6 25.5 14 25.5C15.4 25.5 16.5 24.4 16.5 23C16.5 21 14 19 14 19Z" fill="#C4522A"/>
+    </svg>
+    <span class="nav-logo-text">Mapinduzi</span>
+  </a>
+
+  <a href="contact.html" class="nav-cta">Partner With Us</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="nav-drawer" id="navDrawer">
+  <button class="nav-drawer-close" id="drawerClose" aria-label="Close menu">×</button>
+  <ul>
+    <li><a href="index.html" onclick="closeDrawer()">Home</a></li>
+    <li><a href="about.html" onclick="closeDrawer()">About</a></li>
+    <li><a href="work.html" onclick="closeDrawer()">Work</a></li>
+    <li><a href="resources.html" onclick="closeDrawer()">Resources</a></li>
+    <li><a href="contact.html" onclick="closeDrawer()">Contact Us</a></li>
+  </ul>
+  <a href="contact.html" class="btn-pill" onclick="closeDrawer()">Partner With Us</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="contact-hero-bg"></div>
+  <div class="hero-content">
+    <h1 class="hero-headline">Let's talk.</h1>
+    <p class="hero-sub">Whether you're looking to partner, collaborate, or just find out more about what we do — we'd love to hear from you. Reach out and let's start a real conversation.</p>
+  </div>
+</section>
+
+<!-- MANIFESTO STRIP -->
+<div class="manifesto-strip">
+  <p>"To drive systemic transformation and realize a future of equitable, locally-led, and sustainable development across the continent."</p>
+  <span>The Mapinduzi Mission</span>
+</div>
+
+<!-- CONTACT BODY -->
+<div class="contact-section">
+<div class="contact-body">
+
+  <!-- FORM -->
+  <div class="contact-form-col reveal">
+    <span class="contact-eyebrow">Get in Touch</span>
+    <h2>Start a conversation.</h2>
+
+    <form class="contact-form" id="contactForm" novalidate>
+      <div class="form-field">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
+      </div>
+      <div class="form-field">
+        <label for="organisation">Organisation</label>
+        <input type="text" id="organisation" name="organisation" placeholder="Your organisation or institution">
+      </div>
+      <div class="form-field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+      </div>
+      <div class="form-field">
+        <label for="subject">What are you reaching out about?</label>
+        <select id="subject" name="subject" required>
+          <option value="" disabled selected>Select a topic</option>
+          <option value="partnership">Partnership</option>
+          <option value="funding">Funding &amp; Grants</option>
+          <option value="research">Research Collaboration</option>
+          <option value="speaking">Speaking &amp; Convenings</option>
+          <option value="general">General Enquiry</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="message">Tell us more</label>
+        <textarea id="message" name="message" placeholder="Share as much or as little as you'd like. We read every message." required></textarea>
+      </div>
+      <button type="submit" class="btn-pill form-submit">Send Message <span>→</span></button>
+      <p class="form-success" id="formSuccess">Thank you — we've received your message and will be in touch within 3–5 business days.</p>
+    </form>
+  </div>
+
+  <!-- INFO -->
+  <div class="contact-info-col reveal">
+    <span class="contact-eyebrow">Contact Information</span>
+    <h2>You can also find us here.</h2>
+
+    <div class="contact-info-items">
+      <div class="contact-info-item">
+        <span class="info-label">Email</span>
+        <span class="info-value"><a href="mailto:hello@mapinduzi.org">hello@mapinduzi.org</a></span>
+      </div>
+      <div class="contact-info-item">
+        <span class="info-label">Follow us</span>
+        <div class="contact-social-links">
+          <a href="#">LinkedIn</a>
+          <a href="#">X / Twitter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-band-bg"></div>
+  <div class="cta-band-radial"></div>
+  <div class="cta-content reveal">
+    <h2>Ready to build something that lasts <em>beyond the project?</em></h2>
+    <a href="#contactForm" class="btn-pill">Partner with us</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-brand-name">Mapinduzi</span>
+      <span class="footer-brand-tag">Mapinduzi — Driving the African Revolution in Development.</span>
+      <p>A revolutionary approach to development across Africa — where communities lead, evidence guides, and local expertise sets the global standard.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="work.html">Work Done</a></li>
+        <li><a href="resources.html">Resources Hub</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="about.html#why">Why Mapinduzi Exists</a></li>
+        <li><a href="about.html#how">How We Work</a></li>
+        <li><a href="about.html#values">Our Values & Impact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="contact.html">Inquiry Form</a></li>
+        <li><a href="contact.html">Contact Info</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Twitter / X</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Mapinduzi. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter</a>
+      <a href="#">Newsletter</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  // Hamburger / drawer
+  const drawer = document.getElementById('navDrawer');
+  document.getElementById('hamburger').addEventListener('click', () => {
+    drawer.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Scroll reveal
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = `${(i % 3) * 0.1}s`;
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Form submit
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const success = document.getElementById('formSuccess');
+    this.querySelectorAll('input, select, textarea').forEach(el => el.disabled = true);
+    this.querySelector('.form-submit').style.display = 'none';
+    success.style.display = 'block';
+  });
+</script>
+</body>
+</html>

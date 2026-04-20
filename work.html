@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work Done — Mapinduzi Firm</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ── WORK PAGE STYLES ── */
+
+.work-hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1800&q=85');
+  background-size: cover;
+  background-position: center 35%;
+  filter: brightness(0.35);
+}
+
+/* PROJECTS SECTION */
+.gallery-section {
+  padding: 100px 52px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-header {
+  margin-bottom: 56px;
+}
+
+.gallery-eyebrow {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+
+.gallery-header h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
+
+.gallery-header p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* Project card grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+}
+
+.project-card-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.project-card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.project-card:hover .project-card-img img {
+  transform: scale(1.04);
+}
+
+.project-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.project-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.project-location {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: rgba(30,18,10,0.38);
+}
+
+.project-card h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.25;
+  margin: 0 0 10px;
+}
+
+.project-card p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.75;
+  margin: 0;
+  flex: 1;
+}
+
+.project-card-footer {
+  margin-top: 16px;
+}
+
+.project-year {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: rgba(30,18,10,0.3);
+}
+
+.project-card.featured {
+  grid-column: span 2;
+}
+
+.project-card.featured .project-card-img {
+  aspect-ratio: 16/7;
+}
+
+.project-card.featured h3 {
+  font-size: 1.5rem;
+}
+
+/* PARTNER CTA SECTION — dark wrapper like contact */
+.work-partner-section {
+  background: var(--ink2);
+}
+
+.work-partner-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 52px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.work-partner-eyebrow {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(254,245,231,0.5);
+  margin-bottom: 20px;
+}
+
+.work-partner-inner h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.15;
+  margin: 0 0 0;
+}
+
+.work-partner-right {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.work-partner-right p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(254,245,231,0.72);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* SERVICES SECTION — full 7 pillars */
+.services-full-section {
+  padding: 100px 52px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-full-header {
+  margin-bottom: 64px;
+}
+
+.services-full-eyebrow {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+
+.services-full-header h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
+
+.services-full-header p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+.services-full-grid {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(30,18,10,0.12);
+}
+
+.service-item {
+  display: grid;
+  grid-template-columns: 52px 1fr 24px;
+  align-items: start;
+  gap: 0 40px;
+  padding: 44px 20px 44px 20px;
+  border-bottom: 1px solid rgba(30,18,10,0.12);
+  border-left: 3px solid transparent;
+  position: relative;
+  cursor: default;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.service-item:hover {
+  border-left-color: var(--red);
+  background: rgba(196,82,42,0.03);
+}
+
+.service-item.featured {
+  background: rgba(196,82,42,0.025);
+}
+
+.service-item.featured:hover {
+  background: rgba(196,82,42,0.055);
+}
+
+.service-num {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--red);
+  padding-top: 5px;
+  margin-bottom: 0;
+}
+
+.service-body {}
+
+.service-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.service-item h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(1.3rem, 1.8vw, 1.6rem);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+  margin: 0;
+  flex: 1;
+}
+
+.service-tag-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(30,18,10,0.28);
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+.service-item p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.91rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.82;
+  margin: 0;
+  max-width: 620px;
+}
+
+.service-arrow {
+  font-size: 1rem;
+  color: var(--red);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  padding-top: 4px;
+  line-height: 1;
+}
+
+.service-item:hover .service-arrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .gallery-section {
+    padding: 72px 32px;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .project-card.featured { grid-column: span 2; }
+
+  .work-partner-inner {
+    grid-template-columns: 1fr;
+    padding: 72px 32px;
+    gap: 40px;
+  }
+  .services-full-section {
+    padding: 72px 32px;
+  }
+  .service-item { padding: 36px 16px; gap: 0 24px; }
+}
+
+@media (max-width: 480px) {
+  .gallery-section { padding: 56px 20px; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card.featured { grid-column: span 1; }
+  .project-card.featured .project-card-img { aspect-ratio: 4/3; }
+  .work-partner-inner { padding: 56px 20px; }
+  .services-full-section { padding: 56px 20px; }
+  .service-item { grid-template-columns: 36px 1fr 20px; gap: 0 14px; padding: 28px 10px; }
+  .service-tag-label { display: none; }
+  .service-item { padding: 28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14 1C14 1 3 11.5 3 21C3 27.6 7.9 33 14 33C20.1 33 25 27.6 25 21C25 11.5 14 1 14 1Z" fill="#C4522A"/>
+      <path d="M14 13C14 13 9 17.5 9 21.5C9 24.5 11.2 27 14 27C16.8 27 19 24.5 19 21.5C19 17.5 14 13 14 13Z" fill="#FAE8C8"/>
+      <path d="M14 19C14 19 11.5 21 11.5 23C11.5 24.4 12.6 25.5 14 25.5C15.4 25.5 16.5 24.4 16.5 23C16.5 21 14 19 14 19Z" fill="#C4522A"/>
+    </svg>
+    <span class="nav-logo-text">Mapinduzi</span>
+  </a>
+
+  <a href="contact.html" class="nav-cta">Partner With Us</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="nav-drawer" id="navDrawer">
+  <button class="nav-drawer-close" id="drawerClose" aria-label="Close menu">×</button>
+  <ul>
+    <li><a href="index.html" onclick="closeDrawer()">Home</a></li>
+    <li><a href="about.html" onclick="closeDrawer()">About</a></li>
+    <li><a href="work.html" onclick="closeDrawer()">Work</a></li>
+    <li><a href="resources.html" onclick="closeDrawer()">Resources</a></li>
+    <li><a href="contact.html" onclick="closeDrawer()">Contact Us</a></li>
+  </ul>
+  <a href="contact.html" class="btn-pill" onclick="closeDrawer()">Partner With Us</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="work-hero-bg"></div>
+  <div class="hero-content">
+    <h1 class="hero-headline">Work done.</h1>
+    <p class="hero-sub">This is what the African Way looks like in practice — real programs, real communities, real change. Browse our work and see how we show up.</p>
+    <a href="contact.html" class="btn-pill">Partner With Us <span>→</span></a>
+  </div>
+</section>
+
+<!-- MANIFESTO STRIP -->
+<div class="manifesto-strip">
+  <p>"To drive systemic transformation and realize a future of equitable, locally-led, and sustainable development across the continent."</p>
+  <span>The Mapinduzi Mission</span>
+</div>
+
+<!-- PROJECTS -->
+<section class="gallery-section">
+  <div class="gallery-header reveal">
+    <span class="gallery-eyebrow">Our Work</span>
+    <h2>Revolution in action.</h2>
+    <p>From research convenings to community co-creation sessions, capacity-building workshops to policy dialogues — here's a look at the people and moments behind our work.</p>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card featured reveal">
+      <div class="project-card-img">
+        <img src="https://images.unsplash.com/photo-1593113630400-ea4288922559?w=1200&q=80" alt="Community convening, Kenya">
+      </div>
+      <div class="project-card-meta">
+        <span class="project-tag">Convenings</span>
+        <span class="project-location">Kenya</span>
+      </div>
+      <h3>Regional Philanthropy Convening — East Africa</h3>
+      <p>A multi-day convening bringing together 60+ funders, civil society leaders, and community representatives to co-design locally-led grant frameworks across East Africa.</p>
+      <div class="project-card-footer">
+        <span class="project-year">2024</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-card-img">
+        <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=900&q=80" alt="Research workshop">
+      </div>
+      <div class="project-card-meta">
+        <span class="project-tag">Research</span>
+        <span class="project-location">Sierra Leone</span>
+      </div>
+      <h3>Participatory Research Design — SRHR Programs</h3>
+      <p>Co-created a community-led research methodology for sexual and reproductive health programs, ensuring local women shaped both the questions and the findings.</p>
+      <div class="project-card-footer">
+        <span class="project-year">2023</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-card-img">
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&q=80" alt="Capacity building workshop">
+      </div>
+      <div class="project-card-meta">
+        <span class="project-tag">Governance</span>
+        <span class="project-location">Nigeria</span>
+      </div>
+      <h3>Institutional Capacity Building — Women's Rights CSOs</h3>
+      <p>A 12-month governance strengthening program for six civil society organisations, focused on financial management, board development, and resource mobilisation.</p>
+      <div class="project-card-footer">
+        <span class="project-year">2023</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-card-img">
+        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=900&q=80" alt="Policy dialogue">
+      </div>
+      <div class="project-card-meta">
+        <span class="project-tag">Policy</span>
+        <span class="project-location">Mali</span>
+      </div>
+      <h3>Evidence-to-Policy Brief — Local Development Fund</h3>
+      <p>Translated field research into policy-ready briefs that reached three government ministries, informing the design of a new community-managed development fund.</p>
+      <div class="project-card-footer">
+        <span class="project-year">2022</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-card-img">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=80" alt="M&E adaptive learning">
+      </div>
+      <div class="project-card-meta">
+        <span class="project-tag">M&amp;E</span>
+        <span class="project-location">Uganda</span>
+      </div>
+      <h3>Adaptive M&E Framework — Self-Reliance Fund</h3>
+      <p>Designed and embedded a real-time monitoring system for a $4M self-reliance fund, enabling grantees to pivot programs based on live community feedback.</p>
+      <div class="project-card-footer">
+        <span class="project-year">2022</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-card-img">
+        <img src="https://images.unsplash.com/photo-1503428593586-e225b39bddfe?w=900&q=80" alt="Tech4Dev workshop">
+      </div>
+      <div class="project-card-meta">
+        <span class="project-tag">Tech4Dev</span>
+        <span class="project-location">Rwanda</span>
+      </div>
+      <h3>Digital Empowerment Pilot — Rural Health Workers</h3>
+      <p>Deployed open-source, low-connectivity data tools with 200 rural health workers — enabling real-time reporting without dependence on expensive proprietary platforms.</p>
+      <div class="project-card-footer">
+        <span class="project-year">2024</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PARTNER CTA — dark section -->
+<div class="work-partner-section">
+  <div class="work-partner-inner">
+    <div class="reveal">
+      <span class="work-partner-eyebrow">Work With Us</span>
+      <h2>Ready to work differently?</h2>
+    </div>
+    <div class="work-partner-right reveal">
+      <p>Whether you're a funder, an NGO, a government body, or a community organization — if you believe Africa's development should be designed and led by Africans, we'd love to explore what's possible together.</p>
+      <p>We don't do cookie-cutter engagements. Every partnership starts with your context, your community, and your goals — and we build from there.</p>
+      <a href="contact.html" class="btn-pill">Start a conversation <span>→</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES — All 7 Pillars -->
+<section class="services-full-section">
+  <div class="services-full-header reveal">
+    <span class="services-full-eyebrow">What We Do</span>
+    <h2>A portfolio built for systemic change —<br><em>not just project delivery.</em></h2>
+    <p>We offer a synergistic range of services designed to dismantle dependency and build genuine African self-reliance. Nothing here is off-the-shelf.</p>
+  </div>
+  <div class="services-full-grid">
+
+    <div class="service-item reveal">
+      <span class="service-num">01</span>
+      <div class="service-body">
+        <div class="service-head">
+          <h3>Evidence-Driven Insights & Strategic Research</h3>
+          <span class="service-tag-label">Research</span>
+        </div>
+        <p>We specialize in participatory research — where communities co-create the questions, the methods, and the analysis. Because research that doesn't include the people it's about rarely changes the things that matter to them.</p>
+      </div>
+      <span class="service-arrow">↗</span>
+    </div>
+
+    <div class="service-item reveal">
+      <span class="service-num">02</span>
+      <div class="service-body">
+        <div class="service-head">
+          <h3>Impact Measurement & Adaptive Learning (M&E)</h3>
+          <span class="service-tag-label">M&amp;E</span>
+        </div>
+        <p>We facilitate adaptive management, ensuring data isn't just collected but used in real time to pivot and improve programs. If something isn't working, we find out early — and we fix it together.</p>
+      </div>
+      <span class="service-arrow">↗</span>
+    </div>
+
+    <div class="service-item reveal">
+      <span class="service-num">03</span>
+      <div class="service-body">
+        <div class="service-head">
+          <h3>Strategic Organisational Strengthening</h3>
+          <span class="service-tag-label">Governance</span>
+        </div>
+        <p>Our governance and leadership development models are tailored to local cultural norms while upholding international standards of transparency. Stronger organizations build stronger communities.</p>
+      </div>
+      <span class="service-arrow">↗</span>
+    </div>
+
+    <div class="service-item reveal">
+      <span class="service-num">04</span>
+      <div class="service-body">
+        <div class="service-head">
+          <h3>Community-Led Solutions & Project Realisation</h3>
+          <span class="service-tag-label">Community</span>
+        </div>
+        <p>We provide technical backstopping — meaning we only step in when the community requests it. The power stays firmly in their hands, and we're there to support when it's needed, not to take over.</p>
+      </div>
+      <span class="service-arrow">↗</span>
+    </div>
+
+    <div class="service-item reveal">
+      <span class="service-num">05</span>
+      <div class="service-body">
+        <div class="service-head">
+          <h3>Evidence-to-Action: Policy Influence & Advocacy</h3>
+          <span class="service-tag-label">Policy</span>
+        </div>
+        <p>We use nuanced power analysis to navigate informal influence networks and cultural dynamics that global firms often miss. Research means nothing if it doesn't reach the people who can act on it.</p>
+      </div>
+      <span class="service-arrow">↗</span>
+    </div>
+
+    <div class="service-item reveal">
+      <span class="service-num">06</span>
+      <div class="service-body">
+        <div class="service-head">
+          <h3>Tech4Dev: Strategic Digital Empowerment</h3>
+          <span class="service-tag-label">Tech</span>
+        </div>
+        <p>We prioritize appropriate technology — open-source, low-cost tools that work in low-connectivity settings and local languages. Because digital transformation should work for everyone, not just those with reliable broadband.</p>
+      </div>
+      <span class="service-arrow">↗</span>
+    </div>
+
+    <div class="service-item featured reveal">
+      <span class="service-num">07</span>
+      <div class="service-body">
+        <div class="service-head">
+          <h3>Impactful Convenings & Knowledge Systems</h3>
+          <span class="service-tag-label">Knowledge</span>
+        </div>
+        <p>Our knowledge management and learning solutions prioritize African oral traditions and local narratives, ensuring vital institutional knowledge is never lost. Some of the most important expertise in the world has never been written down — we help change that.</p>
+      </div>
+      <span class="service-arrow">↗</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-band-bg"></div>
+  <div class="cta-band-radial"></div>
+  <div class="cta-content reveal">
+    <h2>Ready to build something that lasts <em>beyond the project?</em></h2>
+    <a href="contact.html" class="btn-pill">Partner with us</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-brand-name">Mapinduzi</span>
+      <span class="footer-brand-tag">Mapinduzi — Driving the African Revolution in Development.</span>
+      <p>A revolutionary approach to development across Africa — where communities lead, evidence guides, and local expertise sets the global standard.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="work.html">Work Done</a></li>
+        <li><a href="resources.html">Resources Hub</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="about.html#why">Why Mapinduzi Exists</a></li>
+        <li><a href="about.html#how">How We Work</a></li>
+        <li><a href="about.html#values">Our Values & Impact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="contact.html">Inquiry Form</a></li>
+        <li><a href="contact.html">Contact Info</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Twitter / X</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Mapinduzi. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter</a>
+      <a href="#">Newsletter</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  const drawer = document.getElementById('navDrawer');
+  document.getElementById('hamburger').addEventListener('click', () => {
+    drawer.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = `${(i % 3) * 0.1}s`;
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

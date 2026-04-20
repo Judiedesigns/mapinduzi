@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources Hub — Mapinduzi Firm</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ── GALLERY — CSS columns masonry (scales to any number of photos) ── */
+.res-gallery-grid {
+  columns: 3;
+  column-gap: 10px;
+  padding: 0 52px;
+}
+.res-gallery-item {
+  break-inside: avoid;
+  margin-bottom: 10px;
+  overflow: hidden;
+  border-radius: 3px;
+}
+.res-gallery-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.res-gallery-item:hover img { transform: scale(1.03); }
+.res-gallery-item.gallery-hidden { display: none; }
+
+.gallery-show-more {
+  text-align: center;
+  padding: 40px 52px 0;
+}
+
+/* ── REPORTS — Pudding-style 3-col publication grid ── */
+.res-reports-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 32px;
+  padding: 0 52px 100px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.pub-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.pub-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.pub-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 100px;
+  padding: 4px 10px;
+}
+
+.pub-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: rgba(30,18,10,0.5);
+  text-transform: uppercase;
+}
+
+.pub-cover {
+  aspect-ratio: 4/3;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.pub-cover-num {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(5rem, 10vw, 8rem);
+  font-weight: 400;
+  font-style: italic;
+  opacity: 0.18;
+  line-height: 1;
+  user-select: none;
+}
+
+.pub-cover-label {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.pub-card h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 0 0 12px;
+  transition: color 0.2s;
+}
+
+.pub-card:hover h3 { color: var(--red); }
+
+.pub-card p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.7;
+  margin: 0 0 16px;
+  flex: 1;
+}
+
+.pub-download {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.pub-download:hover { opacity: 0.7; }
+
+/* Card colour themes */
+.pub-cover--red    { background: #C4522A; color: #FAE8C8; }
+.pub-cover--red    .pub-cover-label { color: #FAE8C8; }
+.pub-cover--dark   { background: #1E120A; color: #FAE8C8; }
+.pub-cover--dark   .pub-cover-label { color: #FAE8C8; }
+.pub-cover--sand   { background: #6B3A20; color: #FAE8C8; }
+.pub-cover--sand   .pub-cover-label { color: #FAE8C8; }
+.pub-cover--lt     { background: #E8946A; color: #1E120A; }
+.pub-cover--lt     .pub-cover-label { color: #1E120A; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .res-reports-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .res-gallery-grid { columns: 2; padding: 0 24px; }
+  .gallery-show-more { padding: 32px 24px 0; }
+  .res-reports-grid { grid-template-columns: 1fr; padding: 0 24px 72px; }
+}
+@media (max-width: 480px) {
+  .res-gallery-grid { columns: 1; padding: 0 20px; }
+  .gallery-show-more { padding: 24px 20px 0; }
+  .res-reports-grid { padding: 0 20px 56px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="resources.html" class="active">Resources</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14 1C14 1 3 11.5 3 21C3 27.6 7.9 33 14 33C20.1 33 25 27.6 25 21C25 11.5 14 1 14 1Z" fill="#C4522A"/>
+      <path d="M14 13C14 13 9 17.5 9 21.5C9 24.5 11.2 27 14 27C16.8 27 19 24.5 19 21.5C19 17.5 14 13 14 13Z" fill="#FAE8C8"/>
+      <path d="M14 19C14 19 11.5 21 11.5 23C11.5 24.4 12.6 25.5 14 25.5C15.4 25.5 16.5 24.4 16.5 23C16.5 21 14 19 14 19Z" fill="#C4522A"/>
+    </svg>
+    <span class="nav-logo-text">Mapinduzi</span>
+  </a>
+  <a href="contact.html" class="nav-cta">Partner With Us</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="nav-drawer" id="navDrawer">
+  <button class="nav-drawer-close" id="drawerClose" aria-label="Close menu">×</button>
+  <ul>
+    <li><a href="index.html" onclick="closeDrawer()">Home</a></li>
+    <li><a href="about.html" onclick="closeDrawer()">About</a></li>
+    <li><a href="work.html" onclick="closeDrawer()">Work</a></li>
+    <li><a href="resources.html" onclick="closeDrawer()">Resources</a></li>
+    <li><a href="contact.html" onclick="closeDrawer()">Contact Us</a></li>
+  </ul>
+  <a href="contact.html" class="btn-pill" onclick="closeDrawer()">Partner With Us</a>
+</div>
+
+<!-- HERO -->
+<section class="hero resources-hero">
+  <div class="resources-hero-bg"></div>
+  <div class="hero-content">
+    <h1 class="hero-headline">Resources hub.</h1>
+    <p class="hero-sub">Everything we've learned, documented, and published — all in one place. From field reports to policy briefs to honest reflections on what works and what doesn't.</p>
+    <a href="#blog" class="btn-pill">Browse All Resources <span>→</span></a>
+  </div>
+</section>
+
+<!-- MANIFESTO STRIP -->
+<div class="manifesto-strip">
+  <p>"To drive systemic transformation and realize a future of equitable, locally-led, and sustainable development across the continent."</p>
+  <span>The Mapinduzi Mission</span>
+</div>
+
+<!-- GALLERY -->
+<section class="res-gallery">
+  <div class="res-section-header reveal">
+    <span class="res-eyebrow">Gallery</span>
+    <h2>From <em>the field.</em></h2>
+    <p class="res-intro">A look inside our work — moments from communities, convenings, and collaborations across the continent.</p>
+  </div>
+  <div class="res-gallery-grid" id="galleryGrid">
+    <div class="res-gallery-item">
+      <img src="https://images.unsplash.com/photo-1593113630400-ea4288922559?w=900&q=85" alt="Community gathering">
+    </div>
+    <div class="res-gallery-item">
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=85" alt="Community session">
+    </div>
+    <div class="res-gallery-item">
+      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&q=85" alt="Convening">
+    </div>
+    <div class="res-gallery-item">
+      <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=900&q=85" alt="Research in action">
+    </div>
+    <div class="res-gallery-item">
+      <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=900&q=85" alt="Field research">
+    </div>
+    <div class="res-gallery-item">
+      <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=900&q=85" alt="Workshop">
+    </div>
+    <div class="res-gallery-item">
+      <img src="https://images.unsplash.com/photo-1503428593586-e225b39bddfe?w=900&q=85" alt="Field work">
+    </div>
+    <div class="res-gallery-item">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&q=85" alt="Data collection">
+    </div>
+    <div class="res-gallery-item">
+      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=85" alt="Team member">
+    </div>
+    <!-- Additional photos hidden by default — add as many as needed below -->
+    <div class="res-gallery-item gallery-hidden">
+      <img src="https://images.unsplash.com/photo-1593113630400-ea4288922559?w=900&q=85" alt="Community gathering">
+    </div>
+    <div class="res-gallery-item gallery-hidden">
+      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&q=85" alt="Convening">
+    </div>
+    <div class="res-gallery-item gallery-hidden">
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=85" alt="Community">
+    </div>
+  </div>
+  <div class="gallery-show-more">
+    <button class="btn-text" id="galleryShowMore">Show more photos →</button>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="res-blog" id="blog">
+  <div class="res-blog-inner">
+    <div class="res-section-header reveal">
+      <span class="res-eyebrow">Latest from Mapinduzi</span>
+      <h2>From the field and <em>the frontier.</em></h2>
+      <p class="res-intro">Insights, stories, and honest perspectives from the front lines of African-led development. No jargon — just reflections on what's working, what isn't, and why it matters.</p>
+    </div>
+
+    <div class="res-blog-filters reveal">
+      <button class="res-filter active" data-filter="all">All</button>
+      <button class="res-filter" data-filter="research">Research</button>
+      <button class="res-filter" data-filter="policy">Policy</button>
+      <button class="res-filter" data-filter="me">M&amp;E</button>
+      <button class="res-filter" data-filter="org">Organisational Strengthening</button>
+      <button class="res-filter" data-filter="tech">Tech4Dev</button>
+      <button class="res-filter" data-filter="convenings">Convenings</button>
+    </div>
+
+    <div class="res-blog-grid">
+      <a href="#" class="news-card reveal" data-category="me">
+        <div class="news-card-img">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&q=80" alt="Blog post">
+        </div>
+        <div class="news-card-body">
+          <span class="news-tag">2025 · Blog · M&amp;E</span>
+          <h3>Why the 'do-with-me' model is failing Malian communities</h3>
+          <p>A new framework for locally sustainable development and how that reflects on our operating on the ground.</p>
+          <span class="news-date">2025</span>
+        </div>
+      </a>
+      <a href="#" class="news-card reveal" data-category="me">
+        <div class="news-card-img">
+          <img src="https://images.unsplash.com/photo-1503428593586-e225b39bddfe?w=600&q=80" alt="Blog post">
+        </div>
+        <div class="news-card-body">
+          <span class="news-tag">2025 · Blog · M&amp;E</span>
+          <h3>Feminist M&amp;E: What it looks like in practice</h3>
+          <p>Moving beyond gender disaggregation toward genuine power-sharing in data collection.</p>
+          <span class="news-date">2025</span>
+        </div>
+      </a>
+      <a href="#" class="news-card reveal" data-category="research">
+        <div class="news-card-img">
+          <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80" alt="Blog post">
+        </div>
+        <div class="news-card-body">
+          <span class="news-tag">2025 · Blog · Research</span>
+          <h3>Resilient M&amp;E: What it looks like in practice</h3>
+          <p>Moving beyond gender disaggregation toward genuine systems-thinking during crisis in Sierra Leone.</p>
+          <span class="news-date">2025</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="res-blog-more reveal">
+      <a href="#" class="btn-text">Load more →</a>
+    </div>
+  </div>
+</section>
+
+<!-- REPORTS -->
+<section class="res-reports">
+  <div class="res-section-header reveal" style="padding: 0 52px; max-width: 1300px; margin: 0 auto 56px;">
+    <span class="res-eyebrow">Reports &amp; Publications</span>
+    <h2>Research you can <em>actually use.</em></h2>
+    <p class="res-intro">Our reports are built for practitioners, not bookshelves. Every publication is grounded in real fieldwork, co-created with communities, and designed to inform decisions — not just describe problems.</p>
+  </div>
+  <div class="res-reports-grid">
+
+    <div class="pub-card reveal">
+      <div class="pub-meta">
+        <span class="pub-num">#01</span>
+        <span class="pub-date">2025 · Research</span>
+      </div>
+      <div class="pub-cover pub-cover--red">
+        <span class="pub-cover-num">01</span>
+        <span class="pub-cover-label">Participatory Research Framework</span>
+      </div>
+      <h3>Community-Led Evidence: A Framework for Participatory Research in Sub-Saharan Africa</h3>
+      <p>An operational guide for practitioners embedding community voice into every stage of the research process — from question design to data analysis.</p>
+      <a href="#" class="pub-download">Download Report →</a>
+    </div>
+
+    <div class="pub-card reveal">
+      <div class="pub-meta">
+        <span class="pub-num">#02</span>
+        <span class="pub-date">2025 · M&amp;E</span>
+      </div>
+      <div class="pub-cover pub-cover--dark">
+        <span class="pub-cover-num">02</span>
+        <span class="pub-cover-label">Adaptive M&amp;E Field Report</span>
+      </div>
+      <h3>Adaptive M&amp;E in Practice: Lessons from the Field</h3>
+      <p>How real-time data use and adaptive management transformed program outcomes across three country contexts.</p>
+      <a href="#" class="pub-download">Download Report →</a>
+    </div>
+
+    <div class="pub-card reveal">
+      <div class="pub-meta">
+        <span class="pub-num">#03</span>
+        <span class="pub-date">2024 · Policy</span>
+      </div>
+      <div class="pub-cover pub-cover--sand">
+        <span class="pub-cover-num">03</span>
+        <span class="pub-cover-label">Trust-Based Philanthropy Brief</span>
+      </div>
+      <h3>Shifting the Funding Paradigm: Toward Trust-Based Philanthropy in Africa</h3>
+      <p>A policy brief examining how donor structures reinforce dependency — and what a trust-based alternative looks like in practice.</p>
+      <a href="#" class="pub-download">Download Report →</a>
+    </div>
+
+    <div class="pub-card reveal">
+      <div class="pub-meta">
+        <span class="pub-num">#04</span>
+        <span class="pub-date">2024 · Org Strengthening</span>
+      </div>
+      <div class="pub-cover pub-cover--lt">
+        <span class="pub-cover-num">04</span>
+        <span class="pub-cover-label">CSO Governance Models</span>
+      </div>
+      <h3>Building to Last: Governance Models for African CSOs</h3>
+      <p>Governance and accountability frameworks grounded in local cultural norms — and how they outperform imported templates in the long run.</p>
+      <a href="#" class="pub-download">Download Report →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- DATA VISUALISATION -->
+<section class="res-dataviz">
+  <div class="res-dataviz-inner">
+    <div class="res-section-header res-section-header--light reveal">
+      <span class="res-eyebrow res-eyebrow--light">Data Visualisation</span>
+      <h2>Making the evidence <em>visible.</em></h2>
+      <p class="res-intro res-intro--light">We believe data should be accessible to everyone — not just analysts. Our interactive visualisations turn complex findings into clear, actionable insights you can explore yourself.</p>
+    </div>
+    <div class="res-dataviz-placeholder reveal">
+      <div class="res-dataviz-mock">
+        <div class="res-dataviz-bars">
+          <div class="res-bar" style="height:65%"><span>Research</span></div>
+          <div class="res-bar" style="height:82%"><span>M&amp;E</span></div>
+          <div class="res-bar" style="height:48%"><span>Policy</span></div>
+          <div class="res-bar" style="height:91%"><span>Capacity</span></div>
+          <div class="res-bar" style="height:55%"><span>Tech4Dev</span></div>
+          <div class="res-bar" style="height:73%"><span>Convenings</span></div>
+        </div>
+        <div class="res-dataviz-label">
+          <span class="res-eyebrow res-eyebrow--light">Interactive data coming soon</span>
+          <p>Our data visualisation tool is in development. Check back for interactive insights from our fieldwork across the continent.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="res-newsletter">
+  <div class="res-newsletter-inner reveal">
+    <div class="res-newsletter-text">
+      <h2>Stay in <em>the loop.</em></h2>
+      <p>Get the latest from Mapinduzi — field insights, new reports, and honest reflections — delivered straight to your inbox. No spam, ever.</p>
+    </div>
+    <form class="res-newsletter-form" onsubmit="return false;">
+      <div class="res-newsletter-input-wrap">
+        <input type="email" placeholder="Enter your email address" class="res-newsletter-input" aria-label="Email address">
+        <button type="submit" class="btn-pill res-newsletter-btn">Subscribe <span>→</span></button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-band-bg"></div>
+  <div class="cta-band-radial"></div>
+  <div class="cta-content reveal">
+    <h2>Ready to build something that lasts <em>beyond the project?</em></h2>
+    <a href="#" class="btn-pill">Partner with us</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-brand-name">Mapinduzi</span>
+      <span class="footer-brand-tag">Mapinduzi — Driving the African Revolution in Development.</span>
+      <p>A revolutionary approach to development across Africa — where communities lead, evidence guides, and local expertise sets the global standard.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="work.html">Work Done</a></li>
+        <li><a href="resources.html">Resources Hub</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="#">Why Mapinduzi Exists</a></li>
+        <li><a href="#">How We Work</a></li>
+        <li><a href="#">Our Values &amp; Impact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="contact.html">Inquiry Form</a></li>
+        <li><a href="contact.html">Contact Info</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Twitter / X</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Mapinduzi. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter</a>
+      <a href="#">Newsletter</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  const drawer = document.getElementById('navDrawer');
+  document.getElementById('hamburger').addEventListener('click', () => {
+    drawer.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Gallery show more
+  const showMoreBtn = document.getElementById('galleryShowMore');
+  if (showMoreBtn) {
+    showMoreBtn.addEventListener('click', () => {
+      document.querySelectorAll('.gallery-hidden').forEach(el => el.classList.remove('gallery-hidden'));
+      showMoreBtn.parentElement.style.display = 'none';
+    });
+  }
+
+  // Blog filters
+  document.querySelectorAll('.res-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.res-filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.res-blog-grid .news-card').forEach(card => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.style.display = match ? '' : 'none';
+      });
+    });
+  });
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = `${(i % 3) * 0.1}s`;
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

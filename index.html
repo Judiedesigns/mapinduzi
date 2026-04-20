@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapinduzi Firm</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14 1C14 1 3 11.5 3 21C3 27.6 7.9 33 14 33C20.1 33 25 27.6 25 21C25 11.5 14 1 14 1Z" fill="#C4522A"/>
+      <path d="M14 13C14 13 9 17.5 9 21.5C9 24.5 11.2 27 14 27C16.8 27 19 24.5 19 21.5C19 17.5 14 13 14 13Z" fill="#FAE8C8"/>
+      <path d="M14 19C14 19 11.5 21 11.5 23C11.5 24.4 12.6 25.5 14 25.5C15.4 25.5 16.5 24.4 16.5 23C16.5 21 14 19 14 19Z" fill="#C4522A"/>
+    </svg>
+    <span class="nav-logo-text">Mapinduzi</span>
+  </a>
+
+  <a href="contact.html" class="nav-cta">Partner With Us</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="nav-drawer" id="navDrawer">
+  <button class="nav-drawer-close" id="drawerClose" aria-label="Close menu">×</button>
+  <ul>
+    <li><a href="index.html" onclick="closeDrawer()">Home</a></li>
+    <li><a href="about.html" onclick="closeDrawer()">About</a></li>
+    <li><a href="work.html" onclick="closeDrawer()">Work</a></li>
+    <li><a href="resources.html" onclick="closeDrawer()">Resources</a></li>
+    <li><a href="contact.html" onclick="closeDrawer()">Contact Us</a></li>
+  </ul>
+  <a href="contact.html" class="btn-pill" onclick="closeDrawer()">Partner With Us</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1 class="hero-headline">Communities as architects of their own future</h1>
+    <p class="hero-sub">We are an African-led catalyst for systemic change bridging the gap between global resources and local expertise so Africa's future is designed, led, and sustained by Africans.</p>
+    <a href="#" class="btn-pill">Explore our work <span>→</span></a>
+  </div>
+</section>
+
+<!-- MANIFESTO STRIP -->
+<div class="manifesto-strip">
+  <p>"To drive systemic transformation and realize a future of equitable, locally-led, and sustainable development across the continent."</p>
+  <span>The Mapinduzi Mission</span>
+</div>
+
+<!-- WHO WE ARE -->
+<section class="who">
+  <div class="who-text reveal">
+    <span class="who-eyebrow">Who We Are</span>
+    <h2><em>Catalysts</em> for<br>systemic change.</h2>
+    <p>Mapinduzi partners with institutions across Africa to design, measure, and strengthen systems that last. Our goal is simple and non-negotiable: <strong>ensure Africa's future is designed, led, and sustained by Africans.</strong></p>
+    <a href="#" class="btn-pill">Explore our work</a>
+  </div>
+  <div class="who-img">
+    <img src="https://images.unsplash.com/photo-1593113630400-ea4288922559?w=1200&q=85" alt="Community gathering">
+    <div class="who-stat reveal">
+      <span class="who-stat-label">Operating across</span>
+      <span class="who-stat-n">54</span>
+      <span class="who-stat-sub">African Nations</span>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL LEADERSHIP -->
+<section class="leadership">
+  <div class="leadership-text reveal">
+    <h2>Replacing the donor-driven era with <em>local leadership.</em></h2>
+    <p>Development programs succeed when institutions are strong, evidence informs decisions, and communities hold ownership. Too often, these forces operate in isolation from each other. We work at their intersection — because lasting change only happens when all three align.</p>
+  </div>
+  <div class="leadership-img-wrap">
+    <img class="leadership-img" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1800&q=85" alt="Community gathering">
+    <div class="leadership-caption reveal">
+      <p>Mapinduzi partners with institutions across Africa to design, measure, and strengthen systems that last.</p>
+      <hr class="leadership-caption-line">
+      <span class="leadership-caption-tag">The African Way: Defining the Standards for Local Excellence</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="services-header reveal">
+    <div class="services-header-left">
+      <span class="services-eyebrow">What We Do</span>
+      <h2>Six pillars.<br><em>One revolution.</em></h2>
+    </div>
+    <p>Our work is centered on shifting power from external actors to local communities — through evidence, strategy, and capacity building.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card">
+      <div class="svc-bg" style="background-image:url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1200&q=80')"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-top"><span class="svc-num">01</span><div class="svc-arrow">↗</div></div>
+        <div>
+          <span class="svc-tag">Research</span>
+          <h3 class="svc-title">Evidence-Driven Insights & Strategic Research</h3>
+          <p class="svc-desc">Participatory research where communities co-create the questions, the methods, and the analysis.</p>
+        </div>
+      </div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-bg" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80')"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-top"><span class="svc-num">02</span><div class="svc-arrow">↗</div></div>
+        <div>
+          <span class="svc-tag">M&E</span>
+          <h3 class="svc-title">Impact Measurement & Adaptive Learning</h3>
+          <p class="svc-desc">Data used in real time to pivot and improve — not just collected for donor reports.</p>
+        </div>
+      </div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-bg" style="background-image:url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=800&q=80')"></div>
+      <div class="svc-overlay"></div>
+      <div class="svc-content">
+        <div class="svc-top"><span class="svc-num">03</span><div class="svc-arrow">↗</div></div>
+        <div>
+          <span class="svc-tag">Capacity</span>
+          <h3 class="svc-title">Strategic Organisational Strengthening</h3>
+          <p class="svc-desc">Governance models tailored to local cultural norms, not imported templates.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="services-cta">
+    <a href="#" class="btn-text">See all six pillars →</a>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news">
+  <div class="news-inner">
+    <div class="news-header reveal">
+      <div class="news-header-left">
+        <span class="news-eyebrow">Latest News & Views</span>
+        <h2>From the field<br>and the frontier.</h2>
+      </div>
+      <a href="#" class="btn-text">All resources →</a>
+    </div>
+    <div class="news-grid">
+      <a href="#" class="news-card reveal">
+        <div class="news-card-img"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&q=80" alt="Blog"></div>
+        <div class="news-card-body">
+          <h3>Why the 'do-with-me' model is failing Malian communities</h3>
+          <p>A new framework for locally sustainable development and how that reflects on our operating on the ground.</p>
+          <span class="news-pill">Blog</span>
+        </div>
+      </a>
+      <a href="#" class="news-card reveal">
+        <div class="news-card-img"><img src="https://images.unsplash.com/photo-1503428593586-e225b39bddfe?w=600&q=80" alt="Blog"></div>
+        <div class="news-card-body">
+          <h3>Feminist M&amp;E: What it looks like in practice</h3>
+          <p>Moving beyond gender disaggregation toward genuine power-sharing in data collection.</p>
+          <span class="news-pill">Blog</span>
+        </div>
+      </a>
+      <a href="#" class="news-card reveal">
+        <div class="news-card-img"><img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80" alt="Blog"></div>
+        <div class="news-card-body">
+          <h3>Resilient M&amp;E: What it looks like in practice</h3>
+          <p>Moving beyond gender disaggregation toward genuine systems-thinking during crisis in Sierra Leone.</p>
+          <span class="news-pill">Field Note</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-band-bg"></div>
+  <div class="cta-band-radial"></div>
+  <div class="cta-content reveal">
+    <h2>Ready to build something that lasts <em>beyond the project?</em></h2>
+    <a href="#" class="btn-pill">Partner with us</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-brand-name">Mapinduzi</span>
+      <span class="footer-brand-tag">Mapinduzi — Driving the African Revolution in Development.</span>
+      <p>A revolutionary approach to development across Africa — where communities lead, evidence guides, and local expertise sets the global standard.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="work.html">Work Done</a></li>
+        <li><a href="resources.html">Resources Hub</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="about.html#why">Why Mapinduzi Exists</a></li>
+        <li><a href="about.html#how">How We Work</a></li>
+        <li><a href="about.html#values">Our Values & Impact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="contact.html">Inquiry Form</a></li>
+        <li><a href="contact.html">Contact Info</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Twitter / X</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Mapinduzi. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter</a>
+      <a href="#">Newsletter</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  // Hamburger / drawer
+  const drawer = document.getElementById('navDrawer');
+  document.getElementById('hamburger').addEventListener('click', () => {
+    drawer.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Scroll reveal
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = `${(i % 3) * 0.1}s`;
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
